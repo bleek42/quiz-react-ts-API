@@ -14,4 +14,5 @@ const errorHandler = (
   }
 
   res.status(500).json(response);
+  next();
 };
