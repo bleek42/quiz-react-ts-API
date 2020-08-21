@@ -1,17 +1,17 @@
 /* eslint-disable no-console */
-const app = require('./app');
-const { NODE_ENV, PORT, DATABASE_URL } = require('./config');
-const knex = require('knex');
+import Knex from 'knex';
+import app from './app';
+import { config } from './config';
 
-const db = knex({
+const knex = Knex({
   client: 'pg',
-  connection: DATABASE_URL,
+  connection: config.DATABASE_URL,
 });
 
-app.set('db', db);
+app.set('db', knex);
 
-app.listen(PORT, () =>
+app.listen(config.PORT, () =>
   console.info(
-    `Server listening in ${NODE_ENV} mode at http://localhost:${PORT}`
+    `Server listening in ${config.NODE_ENV} mode at http://localhost:${config.PORT}`
   )
 );

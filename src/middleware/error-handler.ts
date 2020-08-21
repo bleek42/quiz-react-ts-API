@@ -1,18 +1,17 @@
-import { Errback, Request, Response, NextFunction } from 'express';
+import { Request, Response, NextFunction } from 'express';
+import HttpException from '../utils/http-exception';
 
 const errorHandler = (
-  error: Errback,
+  error: HttpException,
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  let response;
-  if (NODE_ENV === 'production') {
-    response = { error: { message: 'Server error' } };
-  } else {
-    response = { message: error };
-  }
+  const status = error.statusCode || 500;
+  const message = error.message || 'Internal Server Error!';
 
-  res.status(500).json(response);
+  res.status(status).send(message);
   next();
 };
+
+export default errorHandler;
