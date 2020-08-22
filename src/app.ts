@@ -1,10 +1,11 @@
-require('dotenv').config;
+require('dotenv').config();
 import express from 'express';
 import errorHandler from './middleware/error-handler';
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import { config } from './config';
+import categoriesRouter from './categories/categories-router';
 
 const app = express();
 
@@ -14,6 +15,8 @@ const morganOption = config.NODE_ENV === 'production' ? 'tiny' : 'common';
 app.use(morgan(morganOption));
 app.use(helmet());
 app.use(cors());
+
+app.use('/api', categoriesRouter);
 
 // error handling
 // eslint-disable-next-line no-unused-vars

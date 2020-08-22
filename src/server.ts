@@ -10,7 +10,7 @@ const knex = Knex({
   connection: DATABASE_URL,
 });
 
-app.set('db', knex);
+app.set('knex', knex);
 
 app.listen(config.PORT, () =>
   console.info(

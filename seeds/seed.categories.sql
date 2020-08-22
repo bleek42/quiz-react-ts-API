@@ -1,6 +1,3 @@
-INSERT INTO categories (category)
+INSERT INTO categories (title, description, image)
 VALUES
-  ('JavaScript'),
-  ('World War 2'),
-  ('Some Topic'),
-  ('Another Topic');
+  ('JavaScript', 'The programming language that powers the web we know and love!', 'https://www.tutorialrepublic.com/lib/images/javascript-illustration.png');

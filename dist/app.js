@@ -1,4 +1,4 @@
-require('dotenv').config;
+require('dotenv').config();
 import express from 'express';
 import errorHandler from './middleware/error-handler';
 import cors from 'cors';
