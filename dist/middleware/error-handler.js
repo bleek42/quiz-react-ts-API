@@ -1,8 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const errorHandler = (error, req, res, next) => {
     const status = error.statusCode || 500;
     const message = error.message || 'Internal Server Error!';
     res.status(status).send(message);
     next();
 };
-export default errorHandler;
+exports.default = errorHandler;
 //# sourceMappingURL=error-handler.js.map

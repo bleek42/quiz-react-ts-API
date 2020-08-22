@@ -4,5 +4,5 @@ interface Configuration {
     DATABASE_URL?: string;
     TEST_URL?: string | null;
 }
-export declare const config: Configuration;
-export {};
+declare const config: Configuration;
+export default config;
